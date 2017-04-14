@@ -1,3 +1,3 @@
 # $ = jQuery
 $(document).ready ->
-  console.log("Loaded application")
+  # console.log("Loaded application")

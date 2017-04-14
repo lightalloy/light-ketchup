@@ -10,6 +10,10 @@ gem 'coffee-script'
 gem 'sass'
 gem 'haml'
 
+# auth
+gem 'roda'
+gem 'omniauth-github'
+
 group :development do
   gem 'rubocop'
   # Code reloading

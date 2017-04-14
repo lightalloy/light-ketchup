@@ -1,0 +1,6 @@
+%div
+  - if current_user.authenticated?
+    = "Hello, #{current_user.login}"
+    = link_to 'logout', '/auth/logout'
+  - else
+    = link_to 'login', '/auth/github'
