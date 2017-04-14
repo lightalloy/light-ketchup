@@ -3,7 +3,7 @@ module Web::Controllers::TimeEntries
     include Web::Action
 
     def call(params)
-      # TODO: code
+      # TODO: implement
     end
   end
 end
