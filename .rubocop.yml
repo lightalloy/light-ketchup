@@ -1,0 +1,7 @@
+inherit_from: .rubocop_todo.yml
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Documentation:
+  Enabled: false

@@ -23,7 +23,7 @@ class GithubAuth < Roda
         end
 
         repo = UserRepository.new
-        # TODO - manage situations when user is not found/created
+        # TODO: - manage situations when user is not found/created
         user = repo.for_github(raw_info)
         session[:user_id] = user.id if user
         r.redirect '/'
