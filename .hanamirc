@@ -1,0 +1,4 @@
+project=ketchup
+architecture=container
+test=rspec
+template=haml
