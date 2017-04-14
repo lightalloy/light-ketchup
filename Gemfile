@@ -6,9 +6,12 @@ gem 'hanami-model', '~> 1.0'
 
 gem 'pg'
 
+gem 'coffee-script'
+gem 'sass'
 gem 'haml'
 
 group :development do
+  gem 'rubocop'
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
   gem 'shotgun'

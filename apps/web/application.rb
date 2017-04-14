@@ -82,6 +82,7 @@ module Web
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
       # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # Configure Rack middleware for this application
       #
@@ -151,12 +152,13 @@ module Web
         # See: http://hanamirb.org/guides/assets/compressors
         #
         # In order to skip stylesheet compression comment the following line
-        stylesheet_compressor :builtin
+        stylesheet_compressor :sass
 
         # Specify sources for assets
         #
         sources << [
-          'assets'
+          'assets',
+          'vendor/assets'
         ]
       end
 

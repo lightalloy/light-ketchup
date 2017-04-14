@@ -1,7 +1,13 @@
 !!!
 %html
   %head
-    %title Web
+    %title 🍅 Ketchup Productivity
     = favicon
+    %link{ rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css", type: "text/css" }
+    %link{ rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' }
+    = stylesheet 'application'
+    = javascript 'jquery-3.2.1.slim.min', 'application'
   %body
-    = yield
+    .container
+      %h1.is-2.title 🍅 Ketchup Productivity
+      = yield
