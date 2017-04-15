@@ -1,11 +1,12 @@
 module Web::Controllers::TimeEntries
   class Create
     include Web::Action
+    before :authenticate!
 
     params do
       required(:time_entry).schema do
-        required(:minutes) { type?(Integer) & gteq?(0) } #
-        required(:minutes) { type?(Integer) & lteq?(240) } #
+        required(:minutes) { type?(Integer) & gteq?(0) }
+        required(:minutes) { type?(Integer) & lteq?(240) }
         # required(:date).filled(:date?)
       end
     end

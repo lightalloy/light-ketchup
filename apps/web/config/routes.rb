@@ -3,5 +3,5 @@
 #
 # Example:
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
-resources :time_entries, only: :create
+resources :time_entries, only: [:create, :destroy]
 root to: 'time_entries#index'
