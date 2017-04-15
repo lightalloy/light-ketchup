@@ -7,6 +7,6 @@
 
   %div
     - time_entries.each do |entry|
-      .tag.is-medium.is-primary.time-entry{ style: "width: #{entry.minutes*2}px" }
+      .tag.is-paddingless.is-medium.is-primary.time-entry{ style: "width: #{entry.minutes*2}px" }
         = entry.minutes
         = destroy_form(entry)
