@@ -1,6 +1,5 @@
-= render partial: 'shared/menu'
-
 - if current_user.authenticated?
+  = render partial: 'shared/menu'
   .tag.is-medium= total_time
   %br
   %br
