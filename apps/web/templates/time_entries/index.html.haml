@@ -7,8 +7,4 @@
     - time_entries.each do |entry|
       .tag.is-primary.time-entry{ style: "width: #{entry.minutes*1.6}px" }
         = entry.minutes
-        =# link_to '', routes.time_entry_path, method: :delete, class: 'button delete is-small'
         = destroy_form(entry)
-
-
-        / %button.delete.is-small{ data: {entry_id: entry.id} }

@@ -8,19 +8,23 @@ module Web::Controllers::TimeEntries
     end
 
     def call(params)
-      if destroy_time_entry
-        flash[:notice] = 'Destroyed successfully'
+      success = destroy_time_entry
+      if self.format == :json
+        render_json(success)
       else
-        flash[:error] = 'Failed to destroy'
+        flash[:error] = 'Failed to destroy' unless success
+        redirect_to routes.root_path
       end
-      redirect_to routes.root_path
-      # self.status = 200
-      # self.body = {
-      #   success: destroy_time_entry
-      # }.to_json
     end
 
     private
+
+    def render_json(success)
+      self.status = 200
+      self.body = {
+        success: success
+      }.to_json
+    end
 
     def destroy_time_entry
       time_entry = repo.one_for_user_by_id(current_user.id, params[:id])

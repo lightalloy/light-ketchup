@@ -26,7 +26,7 @@ module Web::Views::TimeEntries
 
     def destroy_form(time_entry)
       form_for time_entry, routes.time_entry_path(id: time_entry.id), method: :delete, id: "time-entry-#{time_entry.id}" do
-        submit '', class: 'delete is-small'
+        submit '', class: 'delete is-small', 'data-entry-id' => time_entry.id
       end
     end
   end
