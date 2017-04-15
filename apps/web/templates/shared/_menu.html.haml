@@ -1,8 +1,5 @@
 .tabs
   %ul.is-marginless
-    %li= link_to 'Yesterday', routes.root_path(date: Date.today.prev_day)
-    %li= link_to 'Today', routes.root_path
-    %li= link_to 'Stats', routes.time_stats_path
-
--# date.strftime('%d.%m.%Y')
--# %span.tag
+    = menu_link('Yesterday', routes.root_path(date: Date.today.prev_day))
+    = menu_link('Today', routes.root_path)
+    = menu_link('Stats', routes.time_stats_path)

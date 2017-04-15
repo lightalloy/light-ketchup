@@ -4,6 +4,7 @@ require 'hanami/assets'
 module Web
   # TODO - sic! share code between views in a better way...
   require_relative '../web/views/time_display'
+  require_relative '../web/views/with_menu'
 
   class Application < Hanami::Application
     configure do
@@ -278,6 +279,7 @@ module Web
         include Hanami::Helpers
         include Web::Assets::Helpers
         include Web::Views::TimeDisplay
+        include Web::Views::WithMenu
       end
     end
 
