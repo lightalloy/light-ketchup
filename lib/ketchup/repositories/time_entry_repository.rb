@@ -14,4 +14,8 @@ class TimeEntryRepository < Hanami::Repository
     for_user(user_id).where(date: date)
   end
 
+  def user_sum_for_date(user_id, date = Date.today)
+    return [] if user_id.to_s.empty?
+    for_user_by_date(user_id, date).sum(:minutes).to_i
+  end
 end

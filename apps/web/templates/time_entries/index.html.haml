@@ -1,10 +1,13 @@
 = render partial: 'menu'
 
 - if current_user.authenticated?
+  .tag.is-medium= total_time
+  %br
+  %br
   = form
 
   %div
     - time_entries.each do |entry|
-      .tag.is-primary.time-entry{ style: "width: #{entry.minutes*1.6}px" }
+      .tag.is-medium.is-primary.time-entry{ style: "width: #{entry.minutes*2}px" }
         = entry.minutes
         = destroy_form(entry)
