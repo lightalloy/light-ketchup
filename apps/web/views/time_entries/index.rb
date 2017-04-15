@@ -25,10 +25,10 @@ module Web::Views::TimeEntries
       form_for :time_entry, routes.time_entries_path do
         div(class: 'field') do
           span(class: 'select') do
-            select :minutes, %w(25 40 60 120).map { |a| [a, a] }
+            select :minutes, %w(25 40 60 120).map { |a| [a.to_s, a.to_s] } , options: { selected: session[:minutes].to_s }
           end
           hidden_field :date, value: date
-          submit '+', class: 'button is-info'
+          submit '+', class: 'button is-info', id: 'tomato-add'
         end
       end
     end
