@@ -4,3 +4,4 @@
 .rbenv-vars
 .env.development
 .env.test
+test.rb

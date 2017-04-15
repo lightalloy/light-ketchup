@@ -1,0 +1,11 @@
+= render partial: 'shared/menu'
+
+%h2 Your Stats
+
+- user_stats.each do |date, minutes|
+  %div.stats-row
+    = link_to date.strftime('%d.%m.%Y'), routes.root_path(date: date.strftime('%Y-%m-%d'))
+    %span.tag.is-info{ style: "width: #{minutes}px;"}= hours_minutes(minutes)
+    =# total_time(minutes)
+  =# s.date
+

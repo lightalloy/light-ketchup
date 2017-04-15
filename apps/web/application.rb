@@ -2,6 +2,9 @@ require 'hanami/helpers'
 require 'hanami/assets'
 
 module Web
+  # TODO - sic! share code between views in a better way...
+  require_relative '../web/views/time_display'
+
   class Application < Hanami::Application
     configure do
       ##
@@ -274,6 +277,7 @@ module Web
       view.prepare do
         include Hanami::Helpers
         include Web::Assets::Helpers
+        include Web::Views::TimeDisplay
       end
     end
 

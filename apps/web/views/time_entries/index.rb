@@ -18,7 +18,7 @@ module Web::Views::TimeEntries
 
     def total_time
       minutes = repo.user_sum_for_date(current_user.id, date)
-      "#{minutes/60}h #{minutes%60}min"
+      hours_minutes(minutes)
     end
 
     def form
