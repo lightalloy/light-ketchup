@@ -6,7 +6,6 @@ module Authentication
   end
 
   def authenticate
-    # puts "authenticate - session #{session.keys}"
     current_user
   end
 
@@ -21,14 +20,11 @@ module Authentication
   end
 
   def current_user
-    @current_user || set_current_user
+    @current_user ||= set_current_user
   end
 
   def set_current_user
-    @current_user = if session[:user_id]
-                      UserRepository.new.find(session[:user_id])
-                    else
-                      GuestUser.new(session)
-                    end
+     user = UserRepository.new.find(session[:user_id]) if session[:user_id]
+     user ||= GuestUser.new(session)
   end
 end

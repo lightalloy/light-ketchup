@@ -1,4 +1,4 @@
-%div
+.greeting
   - if current_user.authenticated?
     = "Hello, #{current_user.login}"
     = link_to 'logout', '/auth/logout'

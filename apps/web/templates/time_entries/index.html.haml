@@ -1,0 +1,5 @@
+= form if current_user.authenticated?
+
+- time_entries.each do |entry|
+  %div
+    = "#{entry.minutes} #{entry.date}"
