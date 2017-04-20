@@ -2,8 +2,7 @@ class TimeEntryRepository < Hanami::Repository
 
   def for_user(user_id)
     return [] if user_id.to_s.empty?
-    # sql order desc wtf?
-    time_entries.where(user_id: user_id).order(:date).reverse
+    time_entries.where(user_id: user_id).order{ date.qualified.desc }
   end
 
   def one_for_user_by_id(user_id, id)
@@ -22,14 +21,6 @@ class TimeEntryRepository < Hanami::Repository
 
   def user_dates_minutes(user_id)
     return [] if user_id.to_s.empty?
-    hsh = {}
-    for_user(user_id).map do |entry|
-      date = entry.fetch(:date)
-      minutes = entry.fetch(:minutes)
-      hsh[date] ||= 0
-      hsh[date] += minutes
-    end
-    hsh
-    # select sum(minutes) from time_entries where user_id = 1 group by date
+    for_user(user_id).project { [date, int::sum(minutes.qualified).as(:minutes)] }.group { date.qualified }# .order{ date.qualified.desc }.where(user_id: user_id)
   end
 end
